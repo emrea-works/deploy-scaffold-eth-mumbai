@@ -37,6 +37,9 @@ function mnemonic() {
   return "";
 }
 
+const MORALIS_API_KEY = process.env.MORALIS_API_KEY;
+const INFURA_ID = process.env.INFURA_ID;
+
 module.exports = {
   defaultNetwork,
 
@@ -97,15 +100,16 @@ module.exports = {
       },
     },
     polygon: {
-      url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXx/polygon/mainnet", // <---- YOUR MORALIS ID! (not limited to infura)
+      url: `https://speedy-nodes-nyc.moralis.io/${MORALIS_API_KEY}/polygon/mainnet`, // <---- YOUR MORALIS ID! (not limited to infura)
       gasPrice: 1000000000,
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     polytest: {
-      url: "https://speedy-nodes-nyc.moralis.io/XXXXXXXXXXXXXXXXXXXXXXX/polygon/mumbai", // <---- YOUR MORALIS ID! (not limited to infura)
-      gasPrice: 1000000000,
+      // url: `https://speedy-nodes-nyc.moralis.io/${MORALIS_API_KEY}/polygon/testnet`, // <---- YOUR MORALIS ID! (not limited to infura)
+      url: `https://polygon-mumbai.infura.io/v3/${INFURA_ID}`,
+      gasPrice: 1500000015,
       accounts: {
         mnemonic: mnemonic(),
       },
